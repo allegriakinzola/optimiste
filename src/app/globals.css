@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Boldoni';
+  src: url('/fonts/Bodoni.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-boldoni {
+  font-family: 'Boldoni', serif;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.podcast-card {
+  position: relative;
+}
+
+.podcast-card:hover .play-button {
+  opacity: 1;
+  visibility: visible;
+  animation: playIconPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.podcast-card:hover .card-image {
+  filter: blur(4px);
+  transform: scale(1.05);
+}
+
+@keyframes playIconPop {
+  0% {
+    transform: scale(0.3) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.play-button {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.3) rotate(-180deg);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.card-image {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
